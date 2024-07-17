@@ -1,0 +1,36 @@
+.container-text{
+    max-width: 750px;
+  }
+  .main{
+    height: 100%;
+  }
+  .contenedor{
+    min-height: 100% !important;
+  }
+  
+  img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border:2px solid #800080;
+  }
+  .btn{
+    margin-top: 15px;;
+    text-decoration: none;
+    background-color: #800080;
+    border: 1px solid purple;
+  }
+  .btn:hover{
+    background-color: rgb(177, 18, 177);
+  }
+  .icon{
+    height: 30px;
+    width: 30px;
+  }
+  b, p{
+    padding: 5px;
+    font-size: 1rem;
+  }
+  b{
+    color: #800080;
+  }

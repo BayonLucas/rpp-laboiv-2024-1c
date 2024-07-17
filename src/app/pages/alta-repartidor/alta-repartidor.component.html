@@ -1,0 +1,92 @@
+<div class="container-fluid d-flex justify-content-center align-items-center vh-90">
+    <div class="row log ">
+        <div class="col-8">
+            <form [formGroup]="form" (ngSubmit)="Registrar()" class="form form-control col_form">
+                <div class="row">
+                    <h1>Alta repartidor</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 position-relative p-1 mb-3">
+                        <label for="dni">DNI</label>
+                        <input type="text" maxlength="9" class="form-control" formControlName="dni">
+                        <div *ngIf="form.controls?.['dni']?.invalid && (form.controls?.['dni']?.dirty || form.controls?.['dni']?.touched)"
+                            class="alert alert-danger m-0 p-0 position-absolute" style="width: -webkit-fill-available;">
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['dni']?.errors?.['required']">
+                                DNI es requerido.
+                            </div>
+                            <div class="p-0 m-1 w-auto"  *ngIf="form.controls?.['dni']?.errors?.['minlength']">
+                                DNI debe que tener mínimo 7 carácteres numéricos.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 position-relative p-1 mb-3">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre">
+                        <div *ngIf="form.controls?.['nombre']?.invalid && (form.controls?.['nombre']?.dirty || form.controls?.['nombre']?.touched)"
+                            class="alert alert-danger m-0 p-0 position-absolute" style="width: -webkit-fill-available;">
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['nombre']?.errors?.['required']">
+                                Nombre es requerido.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 position-relative p-1 mb-3">
+                        <label for="edad">Edad</label>
+                        <input type="number" min="18" max="75" class="form-control" formControlName="edad">
+                        <div *ngIf="form.controls?.['edad']?.invalid && (form.controls?.['edad']?.dirty || form.controls?.['edad']?.touched)"
+                            class="alert alert-danger m-0 p-0 position-absolute" style="width: -webkit-fill-available;">
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['edad']?.errors?.['required']">
+                                Edad es requerido.
+                            </div>
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['edad']?.errors?.['min']">
+                                Edad minima es 18.
+                            </div>
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['edad']?.errors?.['max']">
+                                Edad maxima es 75.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 position-relative p-1 mb-3">
+                        <label for="capTransporte">Capacidad de Transporte</label>
+                        <input type="number" min="0" placeholder="unidades" class="form-control" formControlName="capTransporte">
+                        <div *ngIf="form.controls?.['capTransporte']?.invalid && (form.controls?.['capTransporte']?.dirty || form.controls?.['capTransporte']?.touched)"
+                            class="alert alert-danger m-0 p-0 position-absolute" style="width: -webkit-fill-available;">
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['capTransporte']?.errors?.['required']">
+                                Capacidad de Transporte es requerido.
+                            </div>
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['capTransporte']?.errors?.['min']">
+                                Capacidad de Transporte mínima es 0.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                
+                <div class="row">
+                    <div class="col-8 position-relative p-1 mb-3">
+                        <label for="paisOrigen">Pais de Origen</label>
+                        <input type="text" readonly class="form-control" formControlName="paisOrigen">
+                        <div *ngIf="form.controls?.['paisOrigen']?.invalid && (form.controls?.['paisOrigen']?.dirty || form.controls?.['paisOrigen']?.touched)"
+                            class="alert alert-danger m-0 p-0 position-absolute" style="width: -webkit-fill-available;">
+                            <div class="p-0 m-1 w-auto" *ngIf="form.controls?.['paisOrigen']?.errors?.['required']">
+                                Pais de Origen es requerido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center" style="background-color: rgba(178, 206, 206, 0.603); border-radius: 25px;">
+                        <mat-slide-toggle formControlName="unidadPropia" class="" >Unidad propia</mat-slide-toggle>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <button class="btn btn-primary btn-lg w-75" type="submit">Generar Alta</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-4 d-flex justify-content-center align-items-center" style="max-height: 700px; overflow-y: auto;">
+            <lista-banderas class="lista-banderas" (enviarPais)="recibirPaisOrigen($event)"></lista-banderas>
+        </div>
+    </div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row" >
+        <h1>Detalle Repartidor</h1>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center item_container p-3 m-4 w-75" style="background-color: rgb(189, 189, 189);">
+        <div *ngFor="let item of repartidores" class="d-flex flex-row justify-content-around item_repartidor" (click)="seleccionarItem(item)">
+            <div class="col-md-6">
+                <p class="item" >{{item.nombre}}</p>
+                
+            </div>
+            <div class="col-md-6">
+                <p class="item" >{{item.dni}}</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row m-4 w-75 d-flex justify-content-around">
+        <div class="col-md-6 d-flex justify-content-center align-items-center card_container">
+            <datos-empleado [repartidor]="this.repartidorElegido"></datos-empleado>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center card_container">
+            <datos-pais [pais]="this.paisDelRepartidor"></datos-pais>
+        </div>
+    </div>
+</div>
+
+
+

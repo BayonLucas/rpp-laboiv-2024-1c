@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row w-75">
+        <helado-lista (enviarHelado)="this.recibirHeladoSeleccionado($event)"></helado-lista>
+    </div>
+    <div class="row w-100">
+        <div class="col-4">
+            <helado-alta (enviarNuevoHelado)="recibirNuevoHelado($event)"></helado-alta>
+        </div>
+        <div class="col-4">
+            <helado-update [helado]="this.heladoSeleccionado!" (enviarHeladoUpdate)="recibirHeladoUpdate($event)"></helado-update>
+        </div>  
+        <div class="col-4">
+            <helado-baja [helado]="this.heladoDelete!" (enviarHeladoDelete)="recibirEliminarHelado($event)"></helado-baja>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div *ngFor="let item of paisesAfrica">
+    <div class="card" (click)="onClickEvent(item)">
+        <h2>{{item.nombre}}</h2>
+        <img [src]="item.bandera" alt="">
+    </div>
+</div> 
+<div *ngFor="let item of paisesEuropa">
+    <div class="card" (click)="onClickEvent(item)">
+        <h2>{{item.nombre}}</h2>
+        <img [src]="item.bandera" alt="">
+    </div>
+</div> 
+ 

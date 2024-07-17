@@ -1,0 +1,36 @@
+<div class="container" >
+    @if(!helado){
+        <div class="sinHelado">
+            <p class="msjHelado">Selecciones un helado para eliminarlo</p>
+        </div>
+    }
+    @else{
+        <div class="d-flex flex-column info-container">
+            <div class="row p-1 m-1 ">
+                <h2 class="d-flex justify-content-center ">Eliminar helado</h2>
+            </div>
+            <div class="row p-1 m-1 form-floating ">
+                <input type="text" [(ngModel)]="helado.sabor" readonly class="form-control" id="floatingInputSabor" placeholder="sabor">
+                <label for="floatingInputSabor">Sabor</label>
+            </div>
+            <div class="row p-1 m-1 form-floating ">
+                <input type="text" [(ngModel)]="helado.tipo" readonly class="form-control" id="floatingInputTipo" placeholder="tipo">
+                <label for="floatingInputSabor">Tipo</label>
+            </div>
+            <div class="row p-1 m-1 form-floating ">
+                <input type="number" [(ngModel)]="helado.precio" readonly class="form-control" id="floatingInputPrecio" placeholder="sabor" min="0">
+                <label for="floatingInputPrecio">Precio</label>
+            </div>
+    
+            <div class="row p-1 m-1 form-floating ">
+                <input type="number" [(ngModel)]="helado.peso_aprox" readonly class="form-control" id="floatingInputPeso" placeholder="Peso (g)" min="250" max="1000" >
+                <label for="floatingInputPeso">Peso (g)</label>
+            </div>
+    
+            <div class="row justify-content-center flex-row">
+                <button type="button" (click)="onDeleteHelado(true)" class="btn btn-danger m-2">Eliminar</button>
+                <button type="button" (click)="onDeleteHelado(false)" class="btn btn-primary m-2">Cancelar</button>
+            </div>
+        </div>
+    }
+</div>

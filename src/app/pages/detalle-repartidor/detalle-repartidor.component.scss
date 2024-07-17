@@ -1,0 +1,59 @@
+.container {
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 25px;
+}
+.row{
+    width: 80%!important;
+}
+
+.item_container {
+    height: 300px;
+    overflow-y: auto;
+    border-radius: 25px;
+    scrollbar-width: none;
+}
+
+.item_repartidor {
+    background-color: rgb(43, 183, 226);
+    border-radius: 5px;
+    margin: 5px;
+    width: 60%;
+    height: 50px;
+    padding: 5px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 30px;
+}
+
+.card_container {
+    height: 450px;
+    border-radius: 25px;
+    background-color: rgb(189, 189, 189);
+    // margin: 1px;
+}
+
+datos-empleado {
+    padding: 5px;
+    // margin: 5px;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 5px;
+    color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

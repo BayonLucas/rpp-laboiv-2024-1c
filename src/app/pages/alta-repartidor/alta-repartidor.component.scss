@@ -1,0 +1,80 @@
+.log{
+  width: 80%;
+  height: 60%;
+  margin-top: 8%;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+  
+.btnAccesoRapido{
+  border-radius: 100px;
+  width: 70%;
+  border-width: 3px;
+  font-size: 30px;
+}
+
+.col_form{
+  padding: 50px;
+  width: 105%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1{
+    font-weight: bolder;
+    font-size: 60px;
+    color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } 
+  div{
+    padding: 20px;
+  }
+  label{
+    color: azure;
+    text-transform:capitalize;
+    font-weight: normal;
+    font-size: 15px;
+    letter-spacing: 5px;
+    padding-left: 20px;
+  }
+  input{
+    background: rgba(255, 255, 255, 0.3);
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    padding: 0px 20px;
+    border: none;
+    color: white;
+  }
+  span{
+    color: aqua;
+  }
+  button{
+    border-radius: 40px;
+    margin-top: 30px;
+    color: white;
+  }
+
+}
+.span-link{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.span-link:hover{
+  color: rgb(6, 141, 182)!important;
+  text-decoration: none;
+
+}
+
+.lista-banderas{
+  height: 600px;
+  overflow-y: auto;
+  border-radius: 25px;
+  scrollbar-width: none;
+}

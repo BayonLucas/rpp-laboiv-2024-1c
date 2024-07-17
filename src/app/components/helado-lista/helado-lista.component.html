@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row w-100 d-flex justify-content-center align-items-center item_container p-3 m-4 w-75" style="background-color: rgb(189, 189, 189);">
+        <div *ngFor="let item of listaHelados" class="d-flex flex-row justify-content-around item_helado" (click)="onEnviarHelado(item)">
+            <div class="col-3">
+                <p class="item" >{{item.id}}</p>    
+            </div>
+            <div class="col-2">
+                <p class="item" >{{item.sabor}}</p>    
+            </div>
+            <div class="col-2">
+                <p class="item" >{{item.tipo}}</p>    
+            </div>
+            <div class="col-2">
+                <p class="item" >${{item.precio}}</p>    
+            </div>
+            <div class="col-2">
+                <p class="item" >{{item.peso_aprox}}g</p>    
+            </div>
+        </div>
+    </div>
+</div>

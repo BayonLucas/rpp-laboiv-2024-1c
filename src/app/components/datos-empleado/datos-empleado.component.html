@@ -1,0 +1,18 @@
+@if(repartidor){
+    <div class="card">
+        <h5 class="card-header">{{repartidor.nombre}}</h5>
+        <div class="card-body">
+            <p class="card-text">DNI: {{repartidor.dni}}</p>
+            <p class="card-text">EDAD: {{repartidor.edad}}</p>
+            <p class="card-text">Capacidad de transporte: {{repartidor.capTransporte}} unidades</p>
+            <p class="card-text">El repartidor {{repartidor.unidadPropia? "": 'no'}} posee unidad propia</p>
+        </div>
+    </div>
+}
+@else{
+    <div class="card">
+        <div class="card-body d-flex justify-content-center align-items-center">
+            <h1 class="d-flex justify-content-center align-items-center p-0 m-0">Elija un repartidor</h1>
+        </div>
+    </div>
+}
