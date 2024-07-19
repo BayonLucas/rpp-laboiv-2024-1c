@@ -25,6 +25,14 @@ export class UsuarioService {
     }
   }
 
+  async setUsuario(usuario:Usuario){
+    if(usuario){
+      const tupla = doc(this.usuarios);
+      usuario.id = tupla.id;
+      setDoc(tupla, usuario)
+    }
+  }
+
   getRepartidores(){
     return collectionData(this.empleados).pipe( 
       map( usuarios => usuarios.map( user => user as Repartidor)

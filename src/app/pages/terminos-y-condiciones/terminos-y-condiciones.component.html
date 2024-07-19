@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row log">
+        <form [formGroup]="form" autocomplete="nope" class="form form-control col_form">
+            <div class="row">
+                <h1 class="text-center">Términos y condiciones</h1>
+            </div>
+            <div class="row p-1">
+                <div class="position-relative">
+                    <label for="email">Reingrese su correo</label>
+                    <input type="text" class="form-control text-input" formControlName="email">
+                    <div *ngIf="form.controls?.['email']?.invalid && (form.controls?.['email']?.dirty || form.controls?.['email']?.touched)"
+                        class="alert alert-danger p-0">
+                        <div class="p-1" *ngIf="form.controls?.['email']?.errors?.['required']">El correo es requerido.</div>
+                        <div class="p-1" *ngIf="form.controls?.['email']?.errors?.['email']">El correo no es válido.</div>
+                        <div class="p-1" *ngIf="form.controls?.['email']?.errors?.['noCoincide']">El email debe coincidir con el regitrado anteriormente</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="form-check form-switch d-flex justify-content-center">
+                    <input class="form-check-input" type="checkbox" role="switch" formControlName="tyc" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Acepto los términos y condiciones</label>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-between">
+                <button [disabled]="!this.tyc" class="btn btn-outline-light btn-lg p-2 m-2 fs-4" (click)="Registrar()">Finalizar Registro</button>
+            </div>
+        </form>
+    </div>
+</div>

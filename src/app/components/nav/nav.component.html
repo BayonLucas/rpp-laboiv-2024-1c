@@ -4,7 +4,7 @@
             <img [routerLink]="['/home']" class="px-1 logo" src="favicon.ico" alt="">
             <a class="navbar-brand">{{this.authServ.currentUser?.email}}</a>
         </div>
-        <h1 *ngIf="!this.authServ.currentUser" class="navbar-brand fs-1">Bienvenidos!</h1>
+        <h1 *ngIf="!this.authServ.currentUser" class="navbar-brand fs-1"></h1>
         <div class="d-flex" role="search">
             @if(!this.authServ.currentUser){
                 <button class="btn btn-outline-info px-5 me-2" type="button" [routerLink]="['/login']" > Inicia Sesión </button>

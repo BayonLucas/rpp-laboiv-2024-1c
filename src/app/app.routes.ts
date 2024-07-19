@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { isAuthGuard } from '../app/guards/is-auth.guard'
 import { isAdminGuard } from './guards/is-admin.guard';
+import { tycGuard } from './guards/tyc.guard';
+import { tycInGuard } from './guards/tyc-in.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'bienvenido', pathMatch: 'full' },
@@ -28,6 +30,11 @@ export const routes: Routes = [
     },
     { path:'registro', 
         loadComponent: () => import('./pages/registro/registro.component').then(mod => mod.RegistroComponent),
+    },
+    { path:'terminos-y-condiciones', 
+        loadComponent: () => import('./pages/terminos-y-condiciones/terminos-y-condiciones.component').then(mod => mod.TerminosYCondicionesComponent),
+        canActivate: [tycInGuard],
+        canDeactivate: [tycGuard]
     },
 ];
  

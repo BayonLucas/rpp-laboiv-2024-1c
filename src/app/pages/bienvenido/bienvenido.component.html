@@ -5,33 +5,18 @@
         <div class="d-flex justify-content-center align-items-center contenedor position-relative">
           <div class="p-4 container-text">
             <h1 class="text-center">¡Bienvenido!</h1>
+            <br>
             <h3 class="text-center">A continuación puedes ver mi información de github</h3>
             <div class="container-fluid mt-5">
               <div class="row gap-3">
                 <div class="col-12 col-md-4 d-flex justify-content-center">
                   <img [src]="infoGithub?.avatar_url">
                 </div>
-                <div class="col-12 col-md-7 d-flex flex-column align-items-center justify-content-center">
-                  <div>
-                    <b>Nombre y Apellido: </b>
-                    <span>{{infoGithub?.name}}</span>
-                  </div>
-                  <div>
-                    <b>Usuario: </b>
-                    <span>{{infoGithub?.login}}</span>
-                  </div>
-                  <div>
-                    <b>Seguidores: </b>
-                    <span>{{infoGithub?.followers}}</span>
-                  </div>
-                  <div>
-                    <b>Seguidos: </b>
-                    <span>{{infoGithub?.following}}</span>
-                  </div>
-                  <div>
-                    <b>Repositorios públicos: </b>
-                    <span>{{infoGithub?.public_repos}}</span>
-                  </div>
+                <div class="col-12 col-md-7 d-flex flex-column justify-content-center ms-4">
+                  <h2>Usuario: {{infoGithub?.login}}</h2>                  
+                  <h2>Seguidores: {{infoGithub?.followers}}</h2>                  
+                  <h2>Seguidos: {{infoGithub?.following}}</h2>                  
+                  <h2>Repositorios públicos: {{infoGithub?.public_repos}}</h2>
                 </div>  
               </div>
             </div>

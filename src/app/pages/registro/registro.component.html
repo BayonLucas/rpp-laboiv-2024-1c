@@ -1,1 +1,58 @@
-<p>registro works!</p>
+<div class="container">
+    <div class="row log">
+        <form [formGroup]="form" autocomplete="nope" class="form form-control col_form">
+            <div class="row">
+                <h1>Registrarse</h1>
+            </div>
+            <div class="row p-1">
+                <div class="position-relative">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" formControlName="nombre">
+                    <div *ngIf="form.controls?.['nombre']?.invalid && (form.controls?.['nombre']?.dirty || form.controls?.['nombre']?.touched)"
+                        class="alert alert-danger p-0">
+                        <div class="p-1" *ngIf="form.controls?.['nombre']?.errors?.['required']">El nombre es requerido.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row p-1">
+                <div class="position-relative">
+                    <label for="email">Correo</label>
+                    <input type="text" class="form-control" formControlName="email">
+                    <div *ngIf="form.controls?.['email']?.invalid && (form.controls?.['email']?.dirty || form.controls?.['email']?.touched)"
+                        class="alert alert-danger p-0">
+                        <div class="p-1" *ngIf="form.controls?.['email']?.errors?.['required']">El correo es requerido.</div>
+                        <div class="p-1" *ngIf="form.controls?.['email']?.errors?.['email']">El correo no es válido.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row p-1">
+                <div class="position-relative">
+                    <label for="clave">Contraseña</label>
+                    <input type="password" class="form-control" formControlName="clave">
+                    <div *ngIf="form.controls?.['clave']?.invalid && (form.controls?.['clave']?.dirty || form.controls?.['clave']?.touched)"
+                        class="alert alert-danger p-0">
+                        <div class="p-1" *ngIf="form.controls?.['clave']?.errors?.['required']">La contraseña es requerida.</div>
+                        <div class="p-1" *ngIf="form.controls?.['clave']?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
+                    </div>
+                </div>
+            </div>
+             
+            <div class="row p-1">
+                <div class="position-relative">
+                    <label for="repClave">Repetir contraseña</label>
+                    <input type="password" class="form-control" formControlName="repClave">
+                    <div *ngIf="form.controls?.['repClave']?.invalid && (form.controls?.['repClave']?.dirty || form.controls?.['repClave']?.touched)"
+                        class="alert alert-danger p-0">
+                        <div class="p-1" *ngIf="form.controls?.['repClave']?.errors?.['required']">Repetir la contraseña es requerido.</div>
+                        <div class="p-1" *ngIf="form.controls?.['repClave']?.errors?.['noCoincide']">Las contraseñas no coinciden</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-between">
+                <button class="btn btn-outline-light btn-lg p-2 m-2 fs-4" (click)="Registrar()">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
