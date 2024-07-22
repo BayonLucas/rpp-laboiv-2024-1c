@@ -8,12 +8,12 @@ export function confirmarClaveValidator(): ValidatorFn {
         const respuestaError = { noCoincide: 'La clave no coincide' };
 
         if (clave?.value !== repiteClave?.value) {
-        formGroup.get('repClave')?.setErrors(respuestaError);
-        return respuestaError;
+            formGroup.get('repClave')?.setErrors(respuestaError);
+            return respuestaError;
         } 
         else {
-        formGroup.get('repClave')?.setErrors(null);
-        return null;
+            formGroup.get('repClave')?.setErrors(null);
+            return null;
         }
     };
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../../services/usuario.service';
+import { SAlertService } from '../../services/s-alert.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit{
   private authServ:AuthService = inject(AuthService);
   private usuarioServ:UsuarioService = inject(UsuarioService);
   private router:Router = inject(Router);
+  private alertServ:SAlertService = inject(SAlertService);
 
   get email(){
     return this.form.get('email')?.value;
@@ -48,16 +50,22 @@ export class LoginComponent implements OnInit{
         });
       }
     }
-    catch(error){
-      // console.log(error)
-      switch (error) {
-        case "auth/invalid-email":
+    catch(error:any){
+      console.log(error.message)
+      switch (error!.message) {
+        case "Firebase: Error (auth/invalid-credential).":
+          this.errorMessage = "Email invalido";
+          break;
+        case "Firebase: The password is invalid or the user does not have a password. (auth/wrong-password).":
           this.errorMessage = "Email invalido";
           break;
         default:
           // this.errorMessage = e.code
           break;
       }
+      console.log(this.errorMessage)
+      this.alertServ.showError(this.errorMessage!, 2500);
+      
     }
   }
   
