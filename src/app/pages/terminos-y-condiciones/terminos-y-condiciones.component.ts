@@ -70,4 +70,11 @@ export class TerminosYCondicionesComponent {
         });
       }
   }
+
+  async cancelar(){
+    this.puedeContinuar = true;
+    localStorage.removeItem('nuevoUsuario');
+    localStorage.removeItem('usuario');
+    this.router.navigateByUrl('/bienvenido');
+  }
 }

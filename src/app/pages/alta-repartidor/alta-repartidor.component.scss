@@ -47,7 +47,7 @@
     background: rgba(255, 255, 255, 0.3);
     height: 40px;
     line-height: 40px;
-    border-radius: 40px;
+    border-radius: 10px 10px 0px 0px;
     padding: 0px 20px;
     border: none;
     color: white;
@@ -77,4 +77,8 @@
   overflow-y: auto;
   border-radius: 25px;
   scrollbar-width: none;
+}
+
+.alert{
+  width: 98.5%!important;
 }

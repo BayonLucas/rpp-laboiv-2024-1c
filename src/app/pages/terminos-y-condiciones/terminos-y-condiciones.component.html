@@ -22,8 +22,11 @@
                     <label class="form-check-label" for="flexSwitchCheckDefault">Acepto los términos y condiciones</label>
                 </div>
             </div>
-            <div class="row d-flex justify-content-between">
+            <div class="row d-flex justify-content-center">
                 <button [disabled]="!this.tyc" class="btn btn-outline-light btn-lg p-2 m-2 fs-4" (click)="Registrar()">Finalizar Registro</button>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <button class="btn btn-outline-danger btn-lg p-2 m-2 fs-4 w-50" (click)="cancelar()">Cancelar</button>
             </div>
         </form>
     </div>
