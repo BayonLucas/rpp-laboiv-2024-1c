@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../../services/usuario.service';
 import { SAlertService } from '../../services/s-alert.service';
+import { Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -41,9 +42,9 @@ export class LoginComponent implements OnInit{
     try{
       if (this.form.valid) {
         const data = await this.authServ.loguearUsuario(this.email, this.contrasenia);
-        this.usuarioServ.getUsuarioPorUid(data.user.uid).subscribe( data => {
+        
+        this.usuarioServ.getUsuarioPorUid(data.user.uid).pipe(take(1)).subscribe( data => {
           if(data){
-            // console.log(data);
             localStorage.setItem("usuario", JSON.stringify(data));
             this.router.navigate(['/home']);
           }
@@ -54,13 +55,14 @@ export class LoginComponent implements OnInit{
       console.log(error.message)
       switch (error!.message) {
         case "Firebase: Error (auth/invalid-credential).":
-          this.errorMessage = "Email invalido";
+          this.errorMessage = "Credenciales invalidas";
           break;
         case "Firebase: The password is invalid or the user does not have a password. (auth/wrong-password).":
           this.errorMessage = "Email invalido";
           break;
         default:
           // this.errorMessage = e.code
+          this.errorMessage = "Hubo un error inesperado. Intentelo nuevamente mas tarde.";
           break;
       }
       console.log(this.errorMessage)

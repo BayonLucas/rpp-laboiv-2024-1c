@@ -17,9 +17,10 @@ export class NavComponent {
   authServ:AuthService = inject(AuthService);
   private router:Router = inject(Router);
 
-  CerrarSesion(){
+  async CerrarSesion(){
+    await this.authServ.cerrarSesionUsuario();
     localStorage.removeItem('usuario');
-    this.authServ.cerrarSesionUsuario().then(() => this.router.navigateByUrl('/bienvenido'));
+    this.router.navigateByUrl('/bienvenido');
   }
 
 }
