@@ -7,6 +7,7 @@ import { HeladoListaComponent } from '../../components/helado-lista/helado-lista
 import { HeladoUpdateComponent } from '../../components/helado-update/helado-update.component';
 import { Helado } from '../../models/helado';
 import { HeladoService } from '../../services/helado.service';
+import { SAlertService } from '../../services/s-alert.service';
 
 @Component({
   selector: 'app-salen-helados',
@@ -25,6 +26,7 @@ import { HeladoService } from '../../services/helado.service';
 })
 export class SalenHeladosComponent {
   private heladoServ:HeladoService = inject(HeladoService); 
+  private sAlertServ:SAlertService = inject(SAlertService);
   heladoSeleccionado!:Helado | null;
   heladoDelete!:Helado | null;
 
@@ -38,20 +40,23 @@ export class SalenHeladosComponent {
       this.heladoServ.setHelado(nuevoHelado);
       this.heladoSeleccionado = null;
       this.heladoDelete = null;
+      this.sAlertServ.showSuccess('Helado creado', 2000);
     }
   }
-
+  
   recibirHeladoUpdate(heladoUpdate:Helado){
     if(heladoUpdate){
       this.heladoServ.updateHelado(heladoUpdate);
       this.heladoSeleccionado = null;
       this.heladoDelete = null;
+      this.sAlertServ.showSuccess('Helado modificado', 2000);
     }
   }
   
   recibirEliminarHelado(bool:any){
     if(bool){
       this.heladoServ.deleteHelado(this.heladoDelete!);
+      this.sAlertServ.showSuccess('Helado eliminado', 2000);
     }
     this.heladoSeleccionado = null;
     this.heladoDelete = null;

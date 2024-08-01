@@ -8,6 +8,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Repartidor } from '../../models/repartidor';
 import { UsuarioService } from '../../services/usuario.service';
 import { Pais } from '../../models/pais';
+import { SAlertService } from '../../services/s-alert.service';
 
 @Component({
   selector: 'app-alta-repartidor',
@@ -21,6 +22,7 @@ import { Pais } from '../../models/pais';
 export class AltaRepartidorComponent {
   private router:Router = inject(Router);
   private userServ:UsuarioService = inject(UsuarioService);
+  private sAlertServ:SAlertService = inject(SAlertService);
   private paisElegido!:Pais;
   errorMessage: string | null = null;
 
@@ -74,6 +76,7 @@ export class AltaRepartidorComponent {
         id: '',
       }
       await this.userServ.setRepartidor(nuevoEmpleado);
+      this.sAlertServ.showSuccess('Repartidor registrado', 2000);
       this.form.reset();
       this.router.navigateByUrl('/home');
     }

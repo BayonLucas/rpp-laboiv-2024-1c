@@ -1,6 +1,9 @@
-<div class="container">
-    <div class="row w-100 d-flex justify-content-center align-items-center item_container p-3 m-4 w-75" style="background-color: rgb(189, 189, 189);">
-        <div *ngFor="let item of listaHelados" class="d-flex flex-row justify-content-around item_helado" (click)="onEnviarHelado(item)">
+<div class="container w-100">
+    <div class="row d-flex justify-content-center align-items-center item_container p-3 m-4 w-100 position-relative" style="background-color: rgb(189, 189, 189);">
+        <div class="btn" (click)="exportarHeladosPdf()">
+            <h2 class="m-0">Exportar PDF</h2>
+        </div>
+        <div *ngFor="let item of listaHelados" class="d-flex flex-row justify-content-around item_helado w-75" (click)="onEnviarHelado(item)">
             <div class="col-3">
                 <p class="item" >{{item.id}}</p>    
             </div>

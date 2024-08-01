@@ -17,6 +17,17 @@ export class SAlertService {
       showConfirmButton: false,
     })
   } 
+  async showSuccess(msj:string, duration:number){
+    return await Swal.fire({
+      icon: 'success',
+      toast: true,
+      timer: duration,
+      position: 'bottom',
+      text: msj,
+      title: 'Excelente',
+      showConfirmButton: false,
+    })
+  } 
 
 
 
